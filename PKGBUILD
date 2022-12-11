@@ -1,12 +1,7 @@
 # Maintainer: Sibren Vasse <arch@sibrenvasse.nl>
 # Contributor: Ilya Gulya <ilyagulya@gmail.com>
-<<<<<<< HEAD
 pkgname="deezer2"
-pkgver=5.30.70
-=======
-pkgname="deezer"
 pkgver=5.30.391
->>>>>>> main
 pkgrel=1
 pkgdesc="A proprietary music streaming service"
 arch=('any')
