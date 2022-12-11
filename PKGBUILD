@@ -1,7 +1,12 @@
 # Maintainer: Sibren Vasse <arch@sibrenvasse.nl>
 # Contributor: Ilya Gulya <ilyagulya@gmail.com>
+<<<<<<< HEAD
+pkgname="deezer2"
+pkgver=5.30.70
+=======
 pkgname="deezer"
 pkgver=5.30.391
+>>>>>>> main
 pkgrel=1
 pkgdesc="A proprietary music streaming service"
 arch=('any')
@@ -12,7 +17,7 @@ provides=('deezer')
 makedepends=('p7zip' 'asar' 'prettier' 'imagemagick' 'npm' 'nodejs')
 source=("$pkgname-$pkgver-setup.exe::https://www.deezer.com/desktop/download/artifact/win32/x86/$pkgver"
     "$pkgname.desktop"
-    deezer
+    deezer2
     remove-kernel-version-from-user-agent.patch
     avoid-change-default-texthtml-mime-type.patch
     fix-isDev-usage.patch
@@ -59,20 +64,11 @@ prepare() {
 }
 
 package() {
-    mkdir -p "$pkgdir/usr/share/deezer"
-    mkdir -p "$pkgdir/usr/share/applications"
+    mkdir -p "$pkgdir/usr/share/deezer2/"
+    mkdir -p "$pkgdir/usr/share/applications/"
     mkdir -p "$pkgdir/usr/bin/"
-    for size in 16 32 48 64 128 256; do
-        mkdir -p "$pkgdir/usr/share/icons/hicolor/${size}x${size}/apps/"
-    done
 
-    install -Dm644 resources/app.asar "$pkgdir/usr/share/deezer/"
-    install -Dm644 resources/win/deezer-0.png "$pkgdir/usr/share/icons/hicolor/16x16/apps/deezer.png"
-    install -Dm644 resources/win/deezer-1.png "$pkgdir/usr/share/icons/hicolor/32x32/apps/deezer.png"
-    install -Dm644 resources/win/deezer-2.png "$pkgdir/usr/share/icons/hicolor/48x48/apps/deezer.png"
-    install -Dm644 resources/win/deezer-3.png "$pkgdir/usr/share/icons/hicolor/64x64/apps/deezer.png"
-    install -Dm644 resources/win/deezer-4.png "$pkgdir/usr/share/icons/hicolor/128x128/apps/deezer.png"
-    install -Dm644 resources/win/deezer-5.png "$pkgdir/usr/share/icons/hicolor/256x256/apps/deezer.png"
+    install -Dm644 resources/app.asar "$pkgdir/usr/share/deezer2/"
     install -Dm644 "$pkgname.desktop" "$pkgdir/usr/share/applications/"
-    install -Dm755 deezer "$pkgdir/usr/bin/"
+    install -Dm755 "$pkgname" "$pkgdir/usr/bin/"
 }
